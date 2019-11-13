@@ -1,9 +1,9 @@
 const express = require("express");
 
 const router = express();
-const handleJobs = require("./handlers/handleJobs")
+const handleJobs = require("./handlers/handleJobs");
 
 router.use(express.static("public"));
 
-router.get("/jobs", handleJobs)
-module.exports = router
+router.get("/jobs", handleJobs);
+module.exports = router;
