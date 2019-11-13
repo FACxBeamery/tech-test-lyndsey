@@ -6,15 +6,11 @@ import CitySearchbar from "./components/LandingPage/CitySearchbar"
 
 
 function App() {
-  const [searchText, setSearchText] = React.useState("");
   const [location, setLocation] = React.useState(null);
 
   return (
 
-    <CitySearchbar
-      searchText={searchText}
-      setSearchText={setSearchText}
-      setLocation={setLocation}></CitySearchbar>
+    <CitySearchbar setLocation={setLocation}></CitySearchbar>
 
   )
 }

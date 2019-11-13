@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest src/server.test.js",
     "start": "nodemon index.js"
   },
   "author": "",
@@ -21,6 +21,8 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "eslint": "^6.6.0",
+    "jest": "^24.9.0",
+    "nock": "^11.7.0",
     "superagent": "^5.1.0",
     "supertest": "^4.0.2"
   }
