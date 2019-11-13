@@ -2,17 +2,18 @@ import React from "react";
 import styles from "./citysearchbar.module.css";
 
 
-const CitySearchbar = ({ searchText, setSearchText }) => {
+const CitySearchbar = ({ searchText, setSearchText, setLocation }) => {
 
-    const handleSubmit = (e) => {
+    const handleSearchbarTextChange = (e) => {
         e.persist();
         setSearchText(e.target.value);
 
     }
-    const handleSearchbarTextChange = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         if (searchText) {
-            setSearchText(searchText);
+            setLocation(searchText);
+            setSearchText("");
 
         }
     }
