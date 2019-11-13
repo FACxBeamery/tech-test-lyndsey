@@ -21,6 +21,8 @@ describe("test GET request for external API", () => {
         title: "Technology Solutions Developer",
         company_logo: null
     }];
+
+
     it("sends a response of json format", done => {
 
         nock("https://jobs.github.com")
@@ -30,7 +32,6 @@ describe("test GET request for external API", () => {
         return request(app)
             .get("/jobs")
             .expect(200)
-
             .end(function (err, res) {
                 expect(res.body).toEqual(mockJob);
                 if (err) { return done(err); }
