@@ -1,0 +1,25 @@
+.location-searchbar-input {
+	height: 2.5rem;
+	width: 20rem;
+	margin-bottom: var(--s);
+	border: #5109ad solid 0.25rem;
+}
+
+.location-searchbar-form {
+	align-items: center;
+}
+.suggestion-match {
+	color: green;
+}
+
+.form-submit-button {
+	width: 20rem;
+	color: white;
+	background-color: #6a3ea3;
+	border: none;
+	border-radius: var(--xs);
+	margin-left: var(--s);
+	cursor: pointer;
+	box-shadow: 0.25rem 0.25rem #5109ad;
+	margin-left: auto;
+}

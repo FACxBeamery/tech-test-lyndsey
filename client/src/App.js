@@ -2,9 +2,8 @@ import React from "react";
 import LocationSearchbar from "./components/LandingPage/LocationSearchbar";
 import getJobs from "./utils/getJobs";
 import JobView from "./components/JobView/JobView";
-//import styles from './App.module.css';
-//components
-//utils
+import styles from "./App.module.css";
+import Header from "./components/Header/Header";
 
 function App() {
 	const [locationSearched, setLocationSearched] = React.useState(null);
@@ -26,12 +25,13 @@ function App() {
 	}, [locationSearched, setJobs]);
 	return (
 		<>
-			<LocationSearchbar
-				setLocationSearched={setLocationSearched}
-			></LocationSearchbar>
+			<Header />
 			{jobs ? (
 				<JobView jobs={jobs} locationSearched={locationSearched} />
 			) : null}
+			<LocationSearchbar
+				setLocationSearched={setLocationSearched}
+			></LocationSearchbar>
 		</>
 	);
 }

@@ -16,7 +16,6 @@ const getJobsAPI = async (location, type) => {
 		APIURL = "https://jobs.github.com/positions.json";
 	}
 
-	console.log(APIURL);
 	let res = await axios.get(APIURL);
 
 	let jobs = res.data;

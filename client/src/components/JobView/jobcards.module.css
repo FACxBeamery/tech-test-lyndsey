@@ -1,0 +1,12 @@
+.card {
+	width: 17.5rem;
+	height: 17.5rem;
+	font-size: 1.5rem;
+	border: none;
+	border-radius: 0.25rem;
+	margin-right: var(--l);
+	margin-bottom: var(--l);
+	border: #5109ad solid 0.25rem;
+	box-shadow: 0.5rem 0.5rem #5109ad;
+	display: inline;
+}
