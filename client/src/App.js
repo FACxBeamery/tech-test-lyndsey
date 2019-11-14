@@ -24,10 +24,17 @@ function App() {
   //     setData();
   // }, []);
   return (
+    <>
 
-    <LocationSearchbar setLocationSearched={setLocationSearched}></LocationSearchbar>
 
+
+      <LocationSearchbar setLocationSearched={setLocationSearched} ></LocationSearchbar>
+
+
+
+    </>
   )
+
 }
 
 export default App;
