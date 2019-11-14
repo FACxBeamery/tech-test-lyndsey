@@ -25,7 +25,7 @@ const getJobsAPI = async (location, type) => {
 
 
     let res = await axios.get(APIURL);
-    console.log(res);
+
     let jobs = res.data;
     return jobs;
 

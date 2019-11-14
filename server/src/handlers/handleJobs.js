@@ -2,6 +2,7 @@ const getJobsAPI = require("./getJobsAPI")
 
 
 const handleJobs = async (req, res) => {
+
     // define location and type params here
     try {
         const jobs = await getJobsAPI();
