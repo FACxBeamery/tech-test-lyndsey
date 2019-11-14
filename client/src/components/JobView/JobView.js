@@ -1,17 +1,19 @@
 import React from 'react';
+import getJobs from "../../utils/getJobs"
+import JobCards from "./JobCards"
 
 
 
 
+const JobView = ({ jobs, locationSearched }) => {
 
 
-const JobView = ({ jobs, location }) => {
 
 
-    const JobViewHead = ({ location }) => {
-        return (<h2 key={location}>
+    const JobViewHead = ({ locationSearched }) => {
+        return (<h2 key={locationSearched}>
 
-            "Jobs in .... "{location}
+            Jobs in ....  {locationSearched}
         </h2>
         )
     }
@@ -19,8 +21,10 @@ const JobView = ({ jobs, location }) => {
 
 
     return (
-        <JobViewHead location={location}></JobViewHead>
-        <JobCards jobs={jobs}></JobCards>
+        <div>
+            <JobViewHead locationSearched={locationSearched}></JobViewHead>
+            <JobCards jobs={jobs}></JobCards>
+        </div>
     )
 }
 

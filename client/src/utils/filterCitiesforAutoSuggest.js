@@ -1,7 +1,7 @@
 
 
 const filterCitiesforAutoSuggest = (input) => {
-    console.log(input, "inside the filter function")
+
     const dummyCities = [
         "London", "New York", "San Francisco", "Austin", "Manchester", "Los Angeles", "Glasgow", "Stockholm", "Amsterdam"
     ]

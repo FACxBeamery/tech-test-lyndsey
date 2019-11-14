@@ -31,14 +31,14 @@ const Searchbar = () => {
     const handleSearchbarTextChange = (e, setSearchText, setShowSuggestions, setFilteredSuggestions) => {
         e.preventDefault();
         const inputValue = e.target.value;
-        console.log(inputValue);
+
 
         setSearchText(inputValue);
-        //console.log(filterCitiesforAutoSuggest(), "array");
+
         if (inputValue.length > 0) {
             setShowSuggestions(true);
 
-            console.log(filteredSuggestions, "before set")
+
 
             setFilteredSuggestions(
                 filterCitiesforAutoSuggest(inputValue)
@@ -127,13 +127,13 @@ const SuggestionsList = () => {
     const handleClickSuggestion = (e) => {
         setSearchText(e.target.textContent);
 
-        console.log(e.target.innerText, "inside click suggestion")
+
         setSuggestionThatMatches(0);
         setFilteredSuggestions([]);
         setShowSuggestions(false);
     }
 
-    console.log(filteredSuggestions, "filter here")
+
     return filteredSuggestions.length ? (
         < ul  >
             {filteredSuggestions.map((suggestion, index) => {
