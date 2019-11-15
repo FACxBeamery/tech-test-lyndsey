@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "./filterbar.module.css";
+import filterJobsbyType from "../../utils/filterJobsByType";
 
-const Filterbar = ({ jobs, setTypesList }) => {
-	const positions = ["Full Time", "Part Time", "Contact"];
+const Filterbar = ({ jobs, setJobs }) => {
+	const positionTypes = ["Full Time", "Part Time", "Contact"];
 
 	const DropdownOptions = () => {
 		const initialArray = [
@@ -11,7 +12,7 @@ const Filterbar = ({ jobs, setTypesList }) => {
 			</option>
 		];
 		return initialArray.concat(
-			positions.map((option) => (
+			positionTypes.map((option) => (
 				<option value={option} key={option}>
 					{option}
 				</option>
@@ -19,15 +20,17 @@ const Filterbar = ({ jobs, setTypesList }) => {
 		);
 	};
 
-	const handleSelectChange = (event) => {
-		event.preventDefault();
+	const handleSelectChange = (e, setJobs) => {
+		e.preventDefault();
+		setJobs(filterJobsbyType(e.target.value));
 	};
 
 	return (
 		<div className={styles["filterbar-container"]}>
+			<p> Filter by Type:</p>
 			<select
-				value="select-dropdown"
-				onChange={handleSelectChange}
+				value={jobs}
+				onChange={(e) => handleSelectChange(e, setJobs)}
 				name="select-dropdown"
 				id="select-dropdown"
 			>

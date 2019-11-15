@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./locationSearchbar.module.css";
 import filterCitiesforAutoSuggest from "../../utils/filterCitiesforAutoSuggest";
+import cities from "cities.json";
 const SearchbarContext = React.createContext();
 
 const SubmitButton = () => {
@@ -33,10 +34,12 @@ const Searchbar = () => {
 
 		setSearchText(inputValue);
 
-		if (inputValue.length > 0) {
+		if (inputValue.length > 2) {
 			setShowSuggestions(true);
-
-			setFilteredSuggestions(filterCitiesforAutoSuggest(inputValue));
+			const citiesUK = cities.filter((elem) => elem.country === "GB");
+			setFilteredSuggestions(
+				filterCitiesforAutoSuggest(inputValue, citiesUK)
+			);
 		} else {
 			setShowSuggestions(false);
 		}

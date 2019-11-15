@@ -1,3 +1,4 @@
 .filterbar-container {
-	right: 20vw;
+	position: relative;
+	left: 70vw;
 }
