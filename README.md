@@ -50,5 +50,7 @@ This app uses the GitHub Jobs API (https://jobs.github.com/api) to return search
 * wonky styling problems
 * netlify deploy failing
 * some component front end testing has to be done in App due to state inheritance issues
+* duplicate cities on autosuggest due to "cities.json" npm package used containing duplicate cities. Results are rendered the same for multiple versions of the same city suggested. 
+
 
 
