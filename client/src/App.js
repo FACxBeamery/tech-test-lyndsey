@@ -4,11 +4,12 @@ import getJobs from "./utils/getJobs";
 import JobView from "./components/JobView/JobView";
 import styles from "./App.module.css";
 import Header from "./components/Header/Header";
+import Filterbar from "./components/JobView/Filterbar";
 
 function App() {
 	const [locationSearched, setLocationSearched] = React.useState(null);
 	const [jobs, setJobs] = React.useState([]);
-	const [locations, setLocationsList] = React.useState([]);
+	//const [locations, setLocationsList] = React.useState([]);
 	const [types, setTypesList] = React.useState([]);
 
 	React.useEffect(() => {
@@ -27,11 +28,12 @@ function App() {
 		<>
 			<Header />
 			{jobs ? (
-				<JobView jobs={jobs} locationSearched={locationSearched} />
+				<div>
+					<JobView jobs={jobs} locationSearched={locationSearched} />
+					<Filterbar jobs={jobs} setTypesList={setTypesList} />
+				</div>
 			) : null}
-			<LocationSearchbar
-				setLocationSearched={setLocationSearched}
-			></LocationSearchbar>
+			<LocationSearchbar setLocationSearched={setLocationSearched} />
 		</>
 	);
 }

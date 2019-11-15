@@ -1,6 +1,7 @@
+const assert = require("assert");
 const request = require("supertest");
 const express = require("express");
-const app = require("../src/server");
+const app = require("../server");
 const nock = require("nock");
 
 describe("test GET request for external API", () => {
@@ -23,7 +24,24 @@ describe("test GET request for external API", () => {
 		}
 	];
 
-	it("sends a response of json format", (done) => {
+	it("stubs API call and sends dummy response", (done) => {
+		nock("https://jobs.github.com")
+			.get("/positions.json")
+			.reply(200, mockJob);
+
+		return request(app)
+			.get("/jobs")
+			.expect(200)
+			.end(function(err, res) {
+				expect(res.body).toEqual(mockJob);
+				if (err) {
+					return done(err);
+				}
+				done();
+			});
+	});
+
+	it("stubs API call and sends dummy response", (done) => {
 		nock("https://jobs.github.com")
 			.get("/positions.json")
 			.reply(200, mockJob);
