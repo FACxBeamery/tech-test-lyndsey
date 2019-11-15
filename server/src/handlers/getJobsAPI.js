@@ -1,34 +1,25 @@
-const axios = require('axios');
+const axios = require("axios");
 
 const getJobsAPI = async (location, type) => {
-    const typeCriteria = `description=${type}`;
-    const locationCriteria = `location=${location}`;
-    // let APIURL;
+	let APIURL;
 
+	const typeCriteria = `description=${type}`;
+	const locationCriteria = `location=${location}`;
 
-    // if (typeCriteria && !locationCriteria) {
-    //     let APIURL = `https://jobs.github.com/positions.json?${typeCriteria}`
-    // }
-    // else if (locationCriteria && !typeCriteria) {
-    //     let APIURL = `https://jobs.github.com/positions.json?${locationCriteria}`
-    // }
+	if (type && !location) {
+		APIURL = `https://jobs.github.com/positions.json?${typeCriteria}`;
+	} else if (location && !type) {
+		APIURL = `https://jobs.github.com/positions.json?${locationCriteria}`;
+	} else if (location && type) {
+		APIURL = `https://jobs.github.com/positions.json?${locationCriteria}&${typeCriteria}`;
+	} else {
+		APIURL = "https://jobs.github.com/positions.json";
+	}
 
-    // else if (locationCriteria && typeCriteria) {
-    //     let APIURL = `https://jobs.github.com/positions.json?${locationCriteria}&${typeCriteria}`
-    // }
+	let res = await axios.get(APIURL);
 
-    // else {
-    let APIURL = `https://jobs.github.com/positions.json`
-    // }
-
-
-
-
-    let res = await axios.get(APIURL);
-
-    let jobs = res.data;
-    return jobs;
-
-}
+	let jobs = res.data;
+	return jobs;
+};
 
 module.exports = getJobsAPI;

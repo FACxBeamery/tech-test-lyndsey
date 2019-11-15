@@ -1,29 +1,23 @@
-import React from 'react';
+import React from "react";
 
+import JobCards from "./JobCards";
+import styles from "./jobview.module.css";
 
+const JobView = ({ jobs, locationSearched }) => {
+	const JobViewHead = ({ locationSearched }) => {
+		return (
+			<h2 key={locationSearched}>I want a job in.. {locationSearched}</h2>
+		);
+	};
 
-
-
-
-const JobView = ({ jobs, location }) => {
-
-
-    const JobViewHead = ({ location }) => {
-        return (<h2 key={location}>
-
-            "Jobs in .... "{location}
-        </h2>
-        )
-    }
-
-
-
-    return (
-        <JobViewHead location={location}></JobViewHead>
-        <JobCards jobs={jobs}></JobCards>
-    )
-}
-
-
+	return (
+		<div className={styles["job-search-container"]}>
+			<JobViewHead locationSearched={locationSearched}></JobViewHead>
+			<div className={styles["job-cards-container"]}>
+				<JobCards jobs={jobs}></JobCards>
+			</div>
+		</div>
+	);
+};
 
 export default JobView;

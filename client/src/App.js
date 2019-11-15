@@ -1,40 +1,41 @@
-import React from 'react';
+import React from "react";
 import LocationSearchbar from "./components/LandingPage/LocationSearchbar";
-import getJobs from "./utils/getJobs"
-//import styles from './App.module.css';
-//components
-//utils
-
-
+import getJobs from "./utils/getJobs";
+import JobView from "./components/JobView/JobView";
+import styles from "./App.module.css";
+import Header from "./components/Header/Header";
+import Filterbar from "./components/JobView/Filterbar";
 
 function App() {
-  const [locationSearched, setLocationSearched] = React.useState(null);
-  const [jobs, setJobs] = React.useState([]);
-  const [locations, setLocationsList] = React.useState([]);
-  const [types, setTypesList] = React.useState([]);
+	const [locationSearched, setLocationSearched] = React.useState(null);
+	const [jobs, setJobs] = React.useState([]);
+	//const [locations, setLocationsList] = React.useState([]);
+	const [types, setTypesList] = React.useState([]);
 
-  //   React.useEffect(() => {
-  //     const setData = () => {
-  //         getJobs().then((data) => {
-  //             setJobs(data);
-  //             setLocationsList(getLocations(data));
-  //            setTypesList(getTypes(data))
-  //         });
-  //     };
-  //     setData();
-  // }, []);
-  return (
-    <>
+	React.useEffect(() => {
+		const setJobDataAPI = async (locationSearched, setJobs) => {
+			if (locationSearched) {
+				const jobsReturned = await getJobs(locationSearched);
+				setJobs(jobsReturned);
 
-
-
-      <LocationSearchbar setLocationSearched={setLocationSearched} ></LocationSearchbar>
-
-
-
-    </>
-  )
-
+				//setLocationsList(getLocations(data));
+				//setTypesList(getTypes(data))
+			}
+		};
+		setJobDataAPI(locationSearched, setJobs);
+	}, [locationSearched, setJobs]);
+	return (
+		<>
+			<Header />
+			{jobs ? (
+				<div>
+					<JobView jobs={jobs} locationSearched={locationSearched} />
+					<Filterbar jobs={jobs} setTypesList={setTypesList} />
+				</div>
+			) : null}
+			<LocationSearchbar setLocationSearched={setLocationSearched} />
+		</>
+	);
 }
 
 export default App;

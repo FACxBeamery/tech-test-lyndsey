@@ -1,27 +1,21 @@
-
-import React from 'react';
-
-
+import React from "react";
+import styles from "./jobcards.module.css";
 
 const JobCards = ({ jobs }) => {
-    return jobs.map((job) => (
-        <div className={styles["job-card"]}
-            key={job.id}
-            name={job.id} >
+	console.log(jobs);
+	return jobs.map((job) => (
+		<div key={job.id} name={job.id} className={styles["card"]}>
+			<p key={job.title}>Job: {job.title}</p>
+			<p key={job.type}>type: {job.type}</p>
+			<p key={job.location}>location: {job.location}</p>
+			<p key={job.company}>company: {job.company}</p>
 
-            <p key={job.title}>{job.title}</p>
-            <p key={job.type}>{job.type}</p>
-            <p key={job.location}>{job.location}</p>
-            <p key={job.company}>{job.company}</p>
-
-        </div >
-
-
-    ))
-
-
-
-}
-
+			<a target="_blank" href={job.url}>
+				{" "}
+				<button>Click to Apply</button>
+			</a>
+		</div>
+	));
+};
 
 export default JobCards;

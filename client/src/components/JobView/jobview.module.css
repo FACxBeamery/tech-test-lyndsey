@@ -1,0 +1,10 @@
+.job-search-container {
+	color: #5109ad;
+	font-size: var(--l);
+	flex-basis: 100%;
+}
+
+.job-cards-container {
+	display: flex;
+	flex-wrap: wrap;
+}
