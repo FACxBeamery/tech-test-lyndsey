@@ -35,6 +35,6 @@ This app uses the GitHub Jobs API (https://jobs.github.com/api) to return search
 
 ## Known Bugs and Improvements
 * funky styling problems
-* 
+* deploy to netlify failing
 
 
