@@ -7,7 +7,7 @@ const SearchbarContext = React.createContext();
 const SubmitButton = () => {
 	return (
 		<button type="submit" className={styles["form-submit-button"]}>
-			GO
+			Go
 		</button>
 	);
 };
@@ -36,7 +36,7 @@ const Searchbar = () => {
 
 		if (inputValue.length > 2) {
 			setShowSuggestions(true);
-			const citiesUK = cities.filter((elem) => elem.country === "GB");
+			const citiesUK = cities.filter((elem) => elem.country === "US");
 			setFilteredSuggestions(
 				filterCitiesforAutoSuggest(inputValue, citiesUK)
 			);
@@ -75,7 +75,9 @@ const Searchbar = () => {
 	};
 	return (
 		<div>
+			<label htmlFor="locationSearchbar">Enter a city:</label>
 			<input
+				required
 				type="text"
 				name="locationSearchbar"
 				id="locationSearchbar"

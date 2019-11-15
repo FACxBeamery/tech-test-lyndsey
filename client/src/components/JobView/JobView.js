@@ -13,7 +13,11 @@ const JobView = ({ jobs, locationSearched }) => {
 	return (
 		<div className={styles["job-search-container"]}>
 			<JobViewHead locationSearched={locationSearched}></JobViewHead>
-			<div className={styles["job-cards-container"]}>
+			<div
+				htmlFor="job-cards-container"
+				data-testid="job-cards-container"
+				className={styles["job-cards-container"]}
+			>
 				<JobCards jobs={jobs}></JobCards>
 			</div>
 		</div>
