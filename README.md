@@ -47,6 +47,8 @@ This app uses the GitHub Jobs API (https://jobs.github.com/api) to return search
 * **express** is used in server.
 * for testing **jest**, **supertest** and **nock** are used. 
 ## Known Bugs and Improvements
-* funky styling problems
+* wonky styling problems
 * netlify deploy failing
+* some component front end testing has to be done in App due to state inheritance issues
+
 
