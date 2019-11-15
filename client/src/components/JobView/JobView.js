@@ -18,7 +18,7 @@ const JobView = ({ jobs, locationSearched }) => {
 				data-testid="job-cards-container"
 				className={styles["job-cards-container"]}
 			>
-				<JobCards jobs={jobs}></JobCards>
+				{jobs ? <JobCards jobs={jobs}></JobCards> : null}
 			</div>
 		</div>
 	);

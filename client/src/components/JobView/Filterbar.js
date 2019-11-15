@@ -1,9 +1,16 @@
 import React from "react";
 import styles from "./filterbar.module.css";
-import filterJobsbyType from "../../utils/filterJobsByType";
+import filterJobsByType from "../../utils/filterJobsByType";
 
-const Filterbar = ({ jobs, setJobs }) => {
-	const positionTypes = ["Full Time", "Part Time", "Contact"];
+const Filterbar = ({ filteredJobs, setFilteredJobs, jobs, setJobs }) => {
+	const [type, setType] = React.useState(null);
+	const positionTypes = ["Full Time", "Part Time", "Contract"];
+
+	React.useEffect(() => {
+		if (filteredJobs) {
+			setFilteredJobs(filterJobsByType(type, jobs));
+		}
+	}, [setFilteredJobs, type]);
 
 	const DropdownOptions = () => {
 		const initialArray = [
@@ -20,17 +27,31 @@ const Filterbar = ({ jobs, setJobs }) => {
 		);
 	};
 
-	const handleSelectChange = (e, setJobs) => {
+	const handleSelectChange = (e, filteredJobs, setFilteredJobs, setType) => {
 		e.preventDefault();
-		setJobs(filterJobsbyType(e.target.value));
+		console.log("job selected", e.target.value);
+		console.log(
+			"what is returned by filter function",
+			filterJobsByType(e.target.value, filteredJobs)
+		);
+		setType(e.target.value);
+
+		setFilteredJobs(filterJobsByType(e.target.value, filteredJobs));
 	};
 
 	return (
 		<div className={styles["filterbar-container"]}>
 			<p> Filter by Type:</p>
 			<select
-				value={jobs}
-				onChange={(e) => handleSelectChange(e, setJobs)}
+				value={filteredJobs}
+				onChange={(e) =>
+					handleSelectChange(
+						e,
+						filteredJobs,
+						setFilteredJobs,
+						setType
+					)
+				}
 				name="select-dropdown"
 				id="select-dropdown"
 			>
