@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./filterbar.module.css";
 import filterJobsByType from "../../utils/filterJobsByType";
 
-const Filterbar = ({ filteredJobs, setFilteredJobs, jobs, setJobs }) => {
+const Filterbar = ({ filteredJobs, setFilteredJobs, jobs }) => {
 	const [type, setType] = React.useState(null);
 	const positionTypes = ["Full Time", "Part Time", "Contract"];
 
@@ -43,6 +43,7 @@ const Filterbar = ({ filteredJobs, setFilteredJobs, jobs, setJobs }) => {
 		<div className={styles["filterbar-container"]}>
 			<p> Filter by Type:</p>
 			<select
+				className={styles["select-dropdown"]}
 				value={filteredJobs}
 				onChange={(e) =>
 					handleSelectChange(

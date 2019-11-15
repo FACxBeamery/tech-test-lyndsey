@@ -26,6 +26,13 @@ function App() {
 	return (
 		<>
 			<Header />
+			{locationSearched ? (
+				<Filterbar
+					filteredJobs={filteredJobs}
+					setFilteredJobs={setFilteredJobs}
+					jobs={jobs}
+				/>
+			) : null}
 			{filteredJobs ? (
 				<div>
 					<JobView
@@ -35,14 +42,6 @@ function App() {
 				</div>
 			) : null}
 
-			{locationSearched ? (
-				<Filterbar
-					filteredJobs={filteredJobs}
-					setFilteredJobs={setFilteredJobs}
-					jobs={jobs}
-					setJobs={setJobs}
-				/>
-			) : null}
 			<LocationSearchbar setLocationSearched={setLocationSearched} />
 		</>
 	);
