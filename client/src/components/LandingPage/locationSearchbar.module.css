@@ -6,6 +6,10 @@
 }
 
 .location-searchbar-form {
+	display: flex;
+	flex-direction: column;
+	margin-top: 10rem;
+	justify-content: center;
 	align-items: center;
 }
 .suggestion-match {
@@ -18,8 +22,7 @@
 	background-color: #6a3ea3;
 	border: none;
 	border-radius: var(--xs);
-	margin-left: var(--s);
 	cursor: pointer;
 	box-shadow: 0.25rem 0.25rem #5109ad;
-	margin-left: auto;
+	margin-bottom: var(--s);
 }

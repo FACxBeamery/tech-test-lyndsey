@@ -43,10 +43,10 @@ describe("test GET API call", () => {
 				if (err) {
 					done(err);
 				} else {
-					assert.equal(res.status, "200");
-
+					expect(res.body).toEqual(mockJob);
 					console.log("res body", res.body);
-					assert.deepEqual(res.body, mockJob);
+					expect(res.body).toEqual(mockJob);
+
 					done();
 				}
 			});
